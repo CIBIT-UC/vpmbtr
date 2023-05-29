@@ -15,7 +15,7 @@ All paths are specific to the machine where the commands were run (sim01). They 
 
 ### Open screen
 
-    screen -L -Logfile /DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/data/fmriprep-logs/vpmb-spe_fmriprep_sub-07.txt -S vpmb-07
+    screen -L -Logfile /DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/data/fmriprep-logs/vpmb-spe_fmriprep_sub-22.txt -S vpmb-22
 
 ### fmriPrep with docker
 
@@ -24,7 +24,7 @@ All paths are specific to the machine where the commands were run (sim01). They 
         -v /DATAPOOL/VPMB/BIDS-VPMB-SPE/derivatives/fmriprep23:/out \
         -v /SCRATCH/users/alexandresayal/fmriprep23-work-vpmb:/work \
         -v /SCRATCH/software/freesurfer/license.txt:/license \
-        nipreps/fmriprep:23.0.1 \
+        nipreps/fmriprep:23.0.2 \
         /data /out/fmriprep \
         participant \
         -w /work \
@@ -32,7 +32,7 @@ All paths are specific to the machine where the commands were run (sim01). They 
         --nprocs 18 \
         --stop-on-first-crash \
         --output-spaces MNI152NLin2009cAsym:res-2 T1w \
-        --participant-label 01
+        --participant-label 22
 
 ### Participant 07 needed unstable version to run
 
