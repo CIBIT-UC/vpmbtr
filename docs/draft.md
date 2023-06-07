@@ -9,13 +9,32 @@ authors:
       - CIBIT, University of Coimbra, Portugal
     orcid: 0000-0002-0476-9533
     email: alexandre.campos@uc.pt
+  - name: Bruno Direito
+    affiliations:
+      - CIBIT, University of Coimbra, Portugal
+    orcid: 
+    email: 
+  - name: Teresa Sousa
+    affiliations:
+      - CIBIT, University of Coimbra, Portugal
+    orcid: 
+    email:
+  - name: Miguel Castelo-Branco
+    affiliations:
+      - CIBIT, University of Coimbra, Portugal
+    orcid: 
+    email: 
 license: CC-BY-4.0
 keywords: fmri, temporal resolution, neurofeedback
 exports:
   - format: pdf
     output: exports/paper.pdf
+    number_sections: true
+    line_numbers: true
   - format: docx
     output: exports/paper.docx
+bibliography:
+  - docs/my_references.bib
 ---
 
 +++ {"part": "abstract"}
@@ -52,13 +71,20 @@ To allow susceptibility artifact correction, we acquired a pair of spin-echo ima
 ## fMRI data processing
 The dataset was organized according to the BIDS specification. The data was converted to NifTI using dcm2niix and then translated to BIDS using BIDSkit.
 
-The anatomical and functional images were preprocessed using fmriprep (v23.0.2) [](doi:10.1145/3411764.3445648).
+The anatomical and functional images were preprocessed using fmriprep (v23.0.2) {cite:p}`zeidman_guide_2019`.
 
 The activation maps were generated using nilearn.
 
 # Results
 
 ## Impact on the image quality
+
+A very interesting analysis performed on jupyter notebooks and exported here in [](#loc_group_interactive_plot).
+
+:::{figure} #loc_group_interactive_plot
+:name: loc_group_interactive
+A very cool image.
+:::
 
 ## Impact on the feedback signal
 
