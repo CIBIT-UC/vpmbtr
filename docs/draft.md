@@ -34,11 +34,15 @@ exports:
     output: exports/paper.docx
 bibliography:
   - docs/my_references.bib
+abbreviations:
+  fMRI: Functional Magnetic Resonance Imaging
+  MRI: Magnetic Resonance Imaging
+  SNR: Signal-to-Noise Ratio
 ---
 
 +++ {"part": "abstract"}
 
-ABSTRACT
+ABSTRACT SNR
 
 +++
 
