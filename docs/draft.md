@@ -28,15 +28,25 @@ authors:
 license: CC-BY-4.0
 keywords: fmri, temporal resolution, neurofeedback
 exports:
-  - format: pdf
+  - format: pdf+tex
+    template: lapreprint
+    line_spacing: onehalfspacing
+    number_sections: true
+    line_numbers: true
     output: exports/paper.pdf
   - format: docx
+    template: default
+    hideFooter: true
     output: exports/paper.docx
 bibliography:
   - docs/my_references.bib
 abbreviations:
   fMRI: Functional Magnetic Resonance Imaging
+  tSNR: Temporal Signal-to-Noise Ratio
+  AQI: AFNI Quality Index
+  FWHM: Full-Width at Half-Maximum
   MRI: Magnetic Resonance Imaging
+  ROI: Region of Interest
   SNR: Signal-to-Noise Ratio
 ---
 
@@ -45,6 +55,7 @@ abbreviations:
 ABSTRACT SNR
 
 +++
+
 
 ## Introduction
 
@@ -127,13 +138,64 @@ A very cool image.
 
 ### Impact on the image quality
 
+p-value annotation legend:
+- *: 0.01 < p <= 0.05
+- **: 0.001 < p <= 0.01
+- ***: 0.0001 < p <= 0.001
+- ****: p <= 0.0001
+
+:::{figure} #mriqc_snr
+:name: mriqc_snr_plot
+Comparison of SNR for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
+:::{figure} #mriqc_tsnr
+:name: mriqc_tsnr_plot
+Comparison of tSNR for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
+:::{figure} #mriqc_aqi
+:name: mriqc_aqi_plot
+Comparison of AQI for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
+:::{figure} #mriqc_fwhm
+:name: mriqc_fwhm_plot
+Comparison of average FWHM for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
 ### Impact on the feedback signal
 
 ### Impact on the ROI location
 
 ### Offline ROI estimates
 
+:::{figure} #roi_betas_perTR
+:name: roi_betas_perTR_plot
+Comparison of bilateral hMT+ beta value for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
+:::{figure} #roi_tvalues_perTR
+:name: roi_tvalues_perTR_plot
+Comparison of bilateral hMT+ t value for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
+:::
+
 
 ## Discussion
 
 
++++ {"part": "data_availability"}
+The data is available here. Scripts here.
++++
+
++++ {"part": "funding"}
+This work was supported by...
++++
+
++++ {"part": "competing_interests"}
+The authors declare no competing interests.
++++
+
++++ {"part": "appendix"}
+Appendix here.
++++
