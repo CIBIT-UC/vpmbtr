@@ -1,8 +1,8 @@
 ---
-title: Optimizing MR temporal resolution for Neurofeedback
+title: Optimizing functional MRI temporal resolution for neurofeedback applications
 subject: Paper draft
-subtitle: 
-short_title: 
+subtitle: test 2
+short_title: test
 date: 2023-06-07
 authors:
   - name: Alexandre Sayal
@@ -31,6 +31,7 @@ exports:
   - format: pdf+tex
     template: lapreprint
     line_spacing: onehalfspacing
+    venue_footer: biorxiv
     number_sections: true
     line_numbers: true
     output: exports/paper.pdf
