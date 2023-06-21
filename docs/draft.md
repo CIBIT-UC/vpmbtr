@@ -20,6 +20,11 @@ authors:
       - CIBIT, University of Coimbra, Portugal
     orcid: 
     email:
+  - name: Sónia Afonso
+    affiliations:
+      - CIBIT, University of Coimbra, Portugal
+    orcid: 
+    email:    
   - name: Miguel Castelo-Branco
     affiliations:
       - CIBIT, University of Coimbra, Portugal
