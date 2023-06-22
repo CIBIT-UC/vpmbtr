@@ -3,37 +3,31 @@ import pandas as pd
 import numpy as np
 from nilearn.maskers import NiftiSpheresMasker
 
-def iteration(ss,subject, tr_list, run_list, n_volumes_list, roi_ss_coords, hrf_delay, fmriprep_dir, data_dir, TC):
+def execute(ss, subject, tt, tr, rr, run, cluster_coords, hrf_delay, fmriprep_dir, data_dir):
 
-    for tt,tr in enumerate(tr_list):
+    print(f'{subject}_{tr}_{run}')
 
-        for rr,run in enumerate(run_list):
+    # Get paths
+    task_label, fmri_img, confounds_file, events_file, active_cond_name = get_paths(run, tr, subject, fmriprep_dir, data_dir)
 
-            print(f'{subject}_{tr}_{run}')
+    # Read events
+    static_events_indexes, active_events_indexes = read_events(events_file,hrf_delay,tr,active_cond_name)
 
-            # Get paths
-            task_label, fmri_img, confounds_file, events_file, active_cond_name = get_paths(run, tr, subject, fmriprep_dir, data_dir)
+    # Fetch confounds
+    confounds = pd.read_csv(confounds_file, sep='\t')
+    confounds = confounds.filter(regex='^(csf|white_matter|trans|rot).*')
+    confounds.fillna(0, inplace=True)
 
-            # Read events
-            static_events_indexes, active_events_indexes = read_events(events_file,hrf_delay,tr,active_cond_name)
+    # Extract timeseries
+    time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
 
-            # Fetch confounds
-            confounds = pd.read_csv(confounds_file, sep='\t')
-            confounds = confounds.filter(regex='^(csf|white_matter|trans|rot).*')
-            confounds.fillna(0, inplace=True)
+    # create time vector based on the number of time points and the tr
+    time_vector = np.arange(0, time_series.shape[0]*tr, tr)
 
-            # Extract timeseries
-            time_series = extract_timeseries(roi_ss_coords, fmri_img, confounds, tr, subject)
-
-            # create time vector based on the number of time points and the tr
-            time_vector = np.arange(0, time_series.shape[0]*tr, tr)
-
-            # calculate mean of rois
-            time_series_mean = time_series.mean(axis=1)
-
-            TC[ss,tt,rr,:n_volumes_list[tt]] = time_series_mean
+    # calculate mean of rois
+    time_series_mean = time_series.mean(axis=1)
     
-    return TC
+    return time_series_mean
 
 def test_function():
     print("Hello World!")
@@ -46,11 +40,7 @@ def get_paths(run_type, tr, subject_label, fmriprep_dir, data_dir):
     events_file = os.path.join(data_dir, subject_label, 'func', f'{subject_label}_{task_label}_events.tsv')
     return task_label, fmri_img, confounds_file, events_file, active_cond_name
 
-def extract_timeseries(roi_ss_coords, fmri_img, confounds, tr, subject_label):
-    # extract x,y,z coordinates of this subject's hMT+ roi
-    cluster_coords = [[0, 0, 0], [0, 0, 0]]
-    cluster_coords[0] = roi_ss_coords[roi_ss_coords['subject']==subject_label].iloc[:,0:3].values[0].tolist()
-    cluster_coords[1] = roi_ss_coords[roi_ss_coords['subject']==subject_label].iloc[:,3:6].values[0].tolist()
+def extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject_label):
 
     masker_ss = NiftiSpheresMasker(
         cluster_coords,
