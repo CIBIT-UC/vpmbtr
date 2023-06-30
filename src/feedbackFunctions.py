@@ -3,32 +3,6 @@ import pandas as pd
 import numpy as np
 from nilearn.maskers import NiftiSpheresMasker
 
-def execute(ss, subject, tt, tr, rr, run, cluster_coords, hrf_delay, fmriprep_dir, data_dir):
-
-    print(f'{subject}_{tr}_{run}')
-
-    # Get paths
-    task_label, fmri_img, confounds_file, events_file, active_cond_name = get_paths(run, tr, subject, fmriprep_dir, data_dir)
-
-    # Read events
-    static_events_indexes, active_events_indexes = read_events(events_file,hrf_delay,tr,active_cond_name)
-
-    # Fetch confounds
-    confounds = pd.read_csv(confounds_file, sep='\t')
-    confounds = confounds.filter(regex='^(csf|white_matter|trans|rot).*')
-    confounds.fillna(0, inplace=True)
-
-    # Extract timeseries
-    time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
-
-    # create time vector based on the number of time points and the tr
-    time_vector = np.arange(0, time_series.shape[0]*tr, tr)
-
-    # calculate mean of rois
-    time_series_mean = time_series.mean(axis=1)
-    
-    return time_series_mean
-
 def test_function():
     print("Hello World!")
 
@@ -42,13 +16,20 @@ def get_paths(run_type, tr, subject_label, fmriprep_dir, data_dir):
 
 def extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject_label):
 
+    print(f'Extracting timeseries for {subject_label} with bandpass, zscore, and detrend')
+    
     masker_ss = NiftiSpheresMasker(
         cluster_coords,
-        radius=8,
+        radius=6,
         detrend=True,
-        standardize=False,
+        standardize="zscore_sample",
+        low_pass=1,
         high_pass=0.003,
-        t_r=tr
+        t_r=tr,
+        memory="nilearn_cache",
+        memory_level=1,
+        verbose=1,
+        clean__butterworth__padtype="even",
         )
 
     return masker_ss.fit_transform(fmri_img, confounds=confounds)
@@ -68,7 +49,7 @@ def read_events(events_file,hrf_delay,tr,active_cond_name):
     for i in range(len(static_events_onsets)):
         static_events_indexes = np.append(static_events_indexes, np.arange(static_events_onsets[i]/tr, static_events_onsets[i]/tr+static_events_durations[i]/tr))
 
-    static_events_indexes = ( static_events_indexes - 1 + (hrf_delay/tr) ).astype(int)
+    static_events_indexes = ( static_events_indexes + (hrf_delay/tr) ).astype(int)
 
     # get the time points of the ambiguous/unambiguous blocks
     active_events = events[events['trial_type']==active_cond_name]
@@ -83,10 +64,26 @@ def read_events(events_file,hrf_delay,tr,active_cond_name):
         active_events_indexes = np.append(active_events_indexes,
                                             np.arange(active_events_onsets[i]/tr, active_events_onsets[i]/tr+active_events_durations[i]/tr))
 
-    active_events_indexes = ( active_events_indexes - 1 + (hrf_delay/tr) ).astype(int)
+    active_events_indexes = ( active_events_indexes + (hrf_delay/tr) ).astype(int)
 
     return static_events_indexes, active_events_indexes
     
+def execute(subject, tr, run, cluster_coords, fmriprep_dir, data_dir):
 
+    print(f'{subject}_{tr}_{run}')
 
-#def estimate_feedback():
+    # Get paths
+    _, fmri_img, confounds_file, _, _ = get_paths(run, tr, subject, fmriprep_dir, data_dir)
+ 
+    # Fetch confounds
+    confounds = pd.read_csv(confounds_file, sep='\t')
+    confounds = confounds.filter(regex='^(csf|white_matter|trans|rot).*')
+    confounds.fillna(0, inplace=True)
+
+    # Extract timeseries
+    time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
+
+    # calculate mean of rois
+    time_series_mean = time_series.mean(axis=1)
+    
+    return time_series_mean
