@@ -31,8 +31,8 @@ from nilearn.masking import apply_mask
 data_dir = '/DATAPOOL/VPMB/BIDS-VPMB-SPE'
 space_label = "MNI152NLin2009cAsym"
 derivatives_folder = "derivatives/fmriprep23/fmriprep"
-task_label = "UA" # "AA_acq-0500", "AA_acq-0750", "AA_acq-1000", "AA_acq-2500", "UA_acq-0500", "UA_acq-0750", "UA_acq-1000", "UA_acq-2500"
-acq_label = '0750'
+task_label = "AA" # "AA_acq-0500", "AA_acq-0750", "AA_acq-1000", "AA_acq-2500", "UA_acq-0500", "UA_acq-0750", "UA_acq-1000", "UA_acq-2500"
+acq_label = '0500'
 smoothing_fwhm = 6.0
 high_pass_hz = 0.003
 
@@ -336,6 +336,6 @@ np.savetxt(os.path.join(data_dir,"derivatives","nilearn_glm","group",
                         f"group_task-{task_label}_acq-{acq_label}_table-meanTvaluePerSub_con-{contrast_name_valid}_c-bonferroni_p-0.05_clusterk-50.tsv"),
             MB,delimiter='\t',fmt='%.4f')
 
-
+print('DONE')
 
 
