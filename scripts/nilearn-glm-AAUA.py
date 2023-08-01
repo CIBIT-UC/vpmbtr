@@ -31,8 +31,8 @@ from nilearn.masking import apply_mask
 data_dir = '/DATAPOOL/VPMB/BIDS-VPMB-SPE'
 space_label = "MNI152NLin2009cAsym"
 derivatives_folder = "derivatives/fmriprep23/fmriprep"
-task_label = "AA" # "AA_acq-0500", "AA_acq-0750", "AA_acq-1000", "AA_acq-2500", "UA_acq-0500", "UA_acq-0750", "UA_acq-1000", "UA_acq-2500"
-acq_label = '0500'
+task_label = "UA" # "AA_acq-0500", "AA_acq-0750", "AA_acq-1000", "AA_acq-2500", "UA_acq-0500", "UA_acq-0750", "UA_acq-1000", "UA_acq-2500"
+acq_label = '2500'
 smoothing_fwhm = 6.0
 high_pass_hz = 0.003
 

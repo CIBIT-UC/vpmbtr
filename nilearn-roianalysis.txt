@@ -1,0 +1,341 @@
+(base) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ conda activate vpmb-.t[K[Ktr
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ python scripts/nilearn-roianalysis-AAUA.py 
+Subject: sub-01
+Subject: sub-02
+Subject: sub-03
+Subject: sub-05
+Subject: sub-06
+Subject: sub-07
+Subject: sub-08
+Subject: sub-10
+Subject: sub-11
+Subject: sub-12
+Subject: sub-15
+Subject: sub-16
+Subject: sub-21
+Subject: sub-22
+Subject: sub-23
+Traceback (most recent call last):
+  File "/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/scripts/nilearn-roianalysis-AAUA.py", line 98, in <module>
+    np.savetxt(os.path.join('..','data',f'roi_betas.tsv'), BETAS, delimiter='\t')
+  File "<__array_function__ internals>", line 200, in savetxt
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/numpy/lib/npyio.py", line 1541, in savetxt
+    open(fname, 'wt').close()
+    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/roi_betas.tsv'
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ [K(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ pwd
+/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ pwdython scripts/nilearn-roianalysiis-AAUA.py 
+Subject: sub-01
+Subject: sub-02
+Subject: sub-03
+Subject: sub-05
+Subject: sub-06
+Subject: sub-07
+Subject: sub-08
+Subject: sub-10
+Subject: sub-11
+Subject: sub-12
+Subject: sub-15
+Subject: sub-16
+Subject: sub-21
+Subject: sub-22
+Subject: sub-23
+Traceback (most recent call last):
+  File "/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/scripts/nilearn-roianalysis-AAUA.py", line 98, in <module>
+    np.savetxt(os.path.join(out_dir,f'roi_betas.tsv'), BETAS, delimiter='\t')
+  File "<__array_function__ internals>", line 200, in savetxt
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/numpy/lib/npyio.py", line 1555, in savetxt
+    raise ValueError(
+ValueError: Expected 1D or 2D array, got 4D array instead
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ python scripts/nilearn-roianalysiis-AAUA.py 
+Subject: sub-01
+Subject: sub-02
+Subject: sub-03
+Subject: sub-05
+Subject: sub-06
+Subject: sub-07
+Subject: sub-08
+Subject: sub-10
+Subject: sub-11
+Subject: sub-12
+Subject: sub-15
+Subject: sub-16
+Subject: sub-21
+Subject: sub-22
+Subject: sub-23
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ [K(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ (base) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ conda activate vpmb-tr
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ python scripts/nilearn-roianalysis-AAUA.py 
+Subject: sub-01
+Traceback (most recent call last):
+  File "/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/scripts/nilearn-roianalysis-AAUA.py", line 92, in <module>
+    BETAS[ss,tr,rr,:] = masker.fit_transform(beta_img)[0]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/maskers/nifti_spheres_masker.py", line 401, in fit_transform
+    return self.fit().transform(imgs, confounds=confounds,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/maskers/base_masker.py", line 232, in transform
+    return self.transform_single_imgs(imgs,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/maskers/nifti_spheres_masker.py", line 454, in transform_single_imgs
+    signals, _ = self._cache(
+                 ^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/joblib/memory.py", line 349, in __call__
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/maskers/base_masker.py", line 67, in _filter_and_extract
+    temp_imgs = _utils.check_niimg(imgs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/_utils/niimg_conversions.py", line 303, in check_niimg
+    raise ValueError(f"File not found: '{niimg}'")
+ValueError: File not found: '/DATAPOOL/VPMB/BIDS-VPMB-SPE/derivatives/nilearn_glm/sub-01_task-AA_acq-2500_stat-beta_con-AmbiguousMinusStatic.nii.gz'
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ ls /DATAPOOL/VPMB/BIDS-VPMB-SPE/derivatives/nileearn_glm/sub-01_task-AA_acq-25[K[K
+sub-01_task-AA_acq-0500_plot-z_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.png
+sub-01_task-AA_acq-0500_stat-beta_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0500_stat-t_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0500_stat-z_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0500_table-clusters_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.tsv
+sub-01_task-AA_acq-0750_plot-z_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.png
+sub-01_task-AA_acq-0750_stat-beta_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0750_stat-t_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0750_stat-z_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-0750_table-clusters_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.tsv
+sub-01_task-AA_acq-1000_plot-z_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.png
+sub-01_task-AA_acq-1000_stat-beta_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-1000_stat-t_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-1000_stat-z_con-AmbiguousMinusStatic.nii.gz
+sub-01_task-AA_acq-1000_table-clusters_con-AmbiguousMinusStatic_c-bonferroni_p-0.05_clusterk-50.tsv
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ ls /DATAPOOL/VPMB/BIDS-VPMB-SPE/derivatives/nileearn_glm/sub-01_task-AA_acq-[K[K[K[K[K[K[K[K[K[K[A(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ [C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpython scripts/nilearn-glm-AAUA.py 
+Executing for subject sub-23...
+Executing for subject sub-15...
+Executing for subject sub-03...
+Executing for subject sub-05...
+Executing for subject sub-21...
+Executing for subject sub-07...
+Executing for subject sub-11...
+Executing for subject sub-02...
+Executing for subject sub-08...
+Executing for subject sub-22...
+Executing for subject sub-10...
+Executing for subject sub-12...
+Executing for subject sub-06...
+Executing for subject sub-16...
+Executing for subject sub-01...
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.1147260241244314
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.199042146758959
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.186775862494223
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.1957841976807435
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.186589998990602
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.183213706802588
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/scripts/nilearn-glm-AAUA.py:190: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:72: UserWarning: The given float value must not exceed 5.004270457613822. But, you have given threshold=5.2269745031208785 
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.2269745031208785
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:72: UserWarning: The given float value must not exceed 0.0. But, you have given threshold=5.2269745031208785 
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/numpy/core/fromnumeric.py:784: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedArray.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/find_cuts.py:69: UserWarning: Given img is empty. Returning default cut_coords=(0.0, 0.0, 0.0) instead.
+  warnings.warn(
+DONE
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ python scripts/nilearn-glm-AAUA.py 
+Executing for subject sub-23...
+Executing for subject sub-11...
+Executing for subject sub-10...
+Executing for subject sub-16...
+Executing for subject sub-15...
+Executing for subject sub-08...
+Executing for subject sub-03...
+Executing for subject sub-01...
+Executing for subject sub-07...
+Executing for subject sub-05...
+Executing for subject sub-21...
+Executing for subject sub-02...
+Executing for subject sub-12...
+Executing for subject sub-06...
+Executing for subject sub-22...
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/glm/_utils.py:319: UserWarning: Matrix is singular at working precision, regularizing...
+  warn("Matrix is singular at working precision, regularizing...")
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.152881420139894
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.178076682714586
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:72: UserWarning: The given float value must not exceed 5.060374737292185. But, you have given threshold=5.185915934498866 
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.185915934498866
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/displays/_slicers.py:382: UserWarning: empty mask
+  get_mask_bounds(new_img_like(img, not_mask, affine))
+/DATAPOOL/home/alexandresayal/GitRepos/vpmb-tr/scripts/nilearn-glm-AAUA.py:190: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/reporting/_get_clusters_table.py:338: UserWarning: Attention: No clusters with stat higher than 5.2210621118260265
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:72: UserWarning: The given float value must not exceed 0.0. But, you have given threshold=5.2210621118260265 
+  warnings.warn(
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/numpy/core/fromnumeric.py:784: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedArray.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+/DATAPOOL/home/alexandresayal/anaconda3/envs/vpmb-tr/lib/python3.11/site-packages/nilearn/plotting/find_cuts.py:69: UserWarning: Given img is empty. Returning default cut_coords=(0.0, 0.0, 0.0) instead.
+  warnings.warn(
+DONE
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ python scripts/nilearn-glm-AAUA.py [8@roianalysis[C[C[C[C[C[C[C[C[C
+Subject: sub-01
+Subject: sub-02
+Subject: sub-03
+Subject: sub-05
+Subject: sub-06
+Subject: sub-07
+Subject: sub-08
+Subject: sub-10
+Subject: sub-11
+Subject: sub-12
+Subject: sub-15
+Subject: sub-16
+Subject: sub-21
+Subject: sub-22
+Subject: sub-23
+(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ [K(vpmb-tr) [01;32malexandresayal@sim01[00m:[01;34m~/GitRepos/vpmb-tr[00m$ 
