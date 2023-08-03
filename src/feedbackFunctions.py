@@ -16,20 +16,19 @@ def get_paths(run_type, tr, subject_label, fmriprep_dir, data_dir):
 
 def extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject_label):
 
-    print(f'Extracting timeseries for {subject_label} with bandpass, zscore, and detrend')
+    print(f'Extracting timeseries for {subject_label} with bandpass, normalization as psc, and detrend')
     
     masker_ss = NiftiSpheresMasker(
-        cluster_coords,
-        radius=6,
-        detrend=True,
-        standardize="zscore_sample",
-        low_pass=1,
-        high_pass=0.003,
-        t_r=tr,
-        memory="nilearn_cache",
-        memory_level=1,
-        verbose=1,
-        clean__butterworth__padtype="even",
+        seeds = cluster_coords,
+        radius = 6,
+        allow_overlap = True,
+        smoothing_fwhm = 6,
+        standardize = "psc",
+        detrend = True,
+        low_pass = 0.1,
+        high_pass = 0.003,
+        t_r = tr,
+        verbose = 5
         )
 
     return masker_ss.fit_transform(fmri_img, confounds=confounds)
@@ -77,13 +76,13 @@ def execute(subject, tr, run, cluster_coords, fmriprep_dir, data_dir):
  
     # Fetch confounds
     confounds = pd.read_csv(confounds_file, sep='\t')
-    confounds = confounds.filter(regex='^(csf|white_matter|trans|rot).*')
+    confounds = confounds.filter(regex='^(csf|trans|rot).*')
     confounds.fillna(0, inplace=True)
 
     # Extract timeseries
     time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
 
     # calculate mean of rois
-    time_series_mean = time_series.mean(axis=1)
+    #time_series_mean = time_series.mean(axis=1)
     
-    return time_series_mean
+    return time_series
