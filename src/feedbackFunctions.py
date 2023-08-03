@@ -16,22 +16,41 @@ def get_paths(run_type, tr, subject_label, fmriprep_dir, data_dir):
 
 def extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject_label):
 
-    print(f'Extracting timeseries for {subject_label} with bandpass, normalization as psc, and detrend')
+    print(f'Extracting timeseries for {subject_label} with highpass, zscore sample standardization, and smoothing')
     
     masker_ss = NiftiSpheresMasker(
         seeds = cluster_coords,
         radius = 6,
         allow_overlap = True,
         smoothing_fwhm = 6,
-        standardize = "psc",
-        detrend = True,
-        low_pass = 0.1,
+        standardize = "zscore_sample",
+        detrend = False, # this might remove important stuff since the block is long ?
+        low_pass = None, # usual for RS but not for task ?
         high_pass = 0.003,
         t_r = tr,
         verbose = 5
         )
 
     return masker_ss.fit_transform(fmri_img, confounds=confounds)
+    
+def execute(subject, tr, run, cluster_coords, fmriprep_dir, data_dir):
+
+    print(f'{subject}_{tr}_{run}')
+
+    # Get paths
+    _, fmri_img, confounds_file, _, _ = get_paths(run, tr, subject, fmriprep_dir, data_dir)
+ 
+    # Fetch confounds
+    confounds = pd.read_csv(confounds_file, sep='\t')
+    confounds = confounds.filter(regex='^(csf|trans|rot).*')
+    confounds.fillna(0, inplace=True)
+
+    # Extract timeseries
+    time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
+
+    # Save timeseries
+    np.save(os.path.join(data_dir, 'derivatives', 'timecourses', f'{subject}_{tr}_{run}_hp_std-zscoresample_ss.npy'), time_series)
+    
 
 def read_events(events_file,hrf_delay,tr,active_cond_name):
     events = pd.read_csv(events_file, sep='\t')
@@ -66,23 +85,3 @@ def read_events(events_file,hrf_delay,tr,active_cond_name):
     active_events_indexes = ( active_events_indexes + (hrf_delay/tr) ).astype(int)
 
     return static_events_indexes, active_events_indexes
-    
-def execute(subject, tr, run, cluster_coords, fmriprep_dir, data_dir):
-
-    print(f'{subject}_{tr}_{run}')
-
-    # Get paths
-    _, fmri_img, confounds_file, _, _ = get_paths(run, tr, subject, fmriprep_dir, data_dir)
- 
-    # Fetch confounds
-    confounds = pd.read_csv(confounds_file, sep='\t')
-    confounds = confounds.filter(regex='^(csf|trans|rot).*')
-    confounds.fillna(0, inplace=True)
-
-    # Extract timeseries
-    time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
-
-    # calculate mean of rois
-    #time_series_mean = time_series.mean(axis=1)
-    
-    return time_series

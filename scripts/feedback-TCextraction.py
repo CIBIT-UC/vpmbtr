@@ -9,7 +9,6 @@ import src.feedbackFunctions as ff
 data_dir = '/DATAPOOL/VPMB/BIDS-VPMB-SPE'
 fmriprep_dir = os.path.join(data_dir,'derivatives','fmriprep23','fmriprep')
 nilearn_dir = os.path.join(data_dir,'derivatives','nilearn_glm')
-output_dir = os.path.join(data_dir,'derivatives','feedbackSimulator')
 
 subject_list = [x for x in os.listdir(data_dir) if 'sub-' in x]
 subject_list.sort()
@@ -47,18 +46,7 @@ for ss,subject in enumerate(subject_list):
 from multiprocessing import Pool
 pool = Pool(20)
 
-results = pool.starmap(ff.execute,C)
+pool.starmap(ff.execute,C)
 pool.close()
-
-# create dataframe
-df = pd.DataFrame()
-
-df['subject'] = [x[0] for x in C]
-df['tr'] = [x[1] for x in C]
-df['run'] = [x[2] for x in C]
-df['timecourse'] = results
-
-# save dataframe
-df.to_pickle(os.path.join(output_dir,'feedbackSimulator.pkl'))
 
 print('DONE!')
