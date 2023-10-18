@@ -56,7 +56,7 @@ def read_events(events_file,hrf_delay,tr,active_cond_name):
     events = pd.read_csv(events_file, sep='\t')
 
     # Fetch the points of 'Static' events (to normalize the time_series)
-    static_events = events[events['trial_type']=='Static']
+    static_events = events[events['trial_type']=='static']
 
     # Get the time points of the static events - these start at the onset and last for duration
     static_events_onsets = static_events['onset'].values
@@ -65,7 +65,7 @@ def read_events(events_file,hrf_delay,tr,active_cond_name):
     # create vector with all the time points of the static events
     static_events_indexes = np.array([])
     for i in range(len(static_events_onsets)):
-        static_events_indexes = np.append(static_events_indexes, np.arange(static_events_onsets[i]/tr, static_events_onsets[i]/tr+static_events_durations[i]/tr))
+        static_events_indexes = np.append(static_events_indexes, np.arange(static_events_onsets[i]/tr, (static_events_onsets[i]/tr) + (static_events_durations[i]/tr) ))
 
     static_events_indexes = ( static_events_indexes + (hrf_delay/tr) ).astype(int)
 
