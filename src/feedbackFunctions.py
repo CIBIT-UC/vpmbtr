@@ -16,15 +16,15 @@ def get_paths(run_type, tr, subject_label, fmriprep_dir, data_dir):
 
 def extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject_label):
 
-    print(f'Extracting timeseries for {subject_label} with highpass, zscore sample standardization, and smoothing')
+    print(f'Extracting timeseries for {subject_label} with highpass, psc standardization and detrend.')
     
     masker_ss = NiftiSpheresMasker(
         seeds = cluster_coords,
         radius = 6,
         allow_overlap = True,
-        smoothing_fwhm = 6,
-        standardize = "zscore_sample",
-        detrend = False, # this might remove important stuff since the block is long ?
+        smoothing_fwhm = None,
+        standardize = "psc",
+        detrend = True, # this might remove important stuff since the block is long ?
         low_pass = None, # usual for RS but not for task ?
         high_pass = 0.003,
         t_r = tr,
@@ -49,7 +49,7 @@ def execute(subject, tr, run, cluster_coords, fmriprep_dir, data_dir):
     time_series = extract_timeseries(cluster_coords, fmri_img, confounds, tr, subject)
 
     # Save timeseries
-    np.save(os.path.join(data_dir, 'derivatives', 'timecourses', f'{subject}_{tr}_{run}_hp_std-zscoresample_ss.npy'), time_series)
+    np.save(os.path.join(data_dir, 'derivatives', 'timecourses', f'{subject}_{tr}_{run}_hp_std-psc_detrend.npy'), time_series)
     
 
 def read_events(events_file,hrf_delay,tr,active_cond_name):
