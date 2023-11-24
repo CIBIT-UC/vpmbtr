@@ -33,7 +33,7 @@ authors:
 license: CC-BY-4.0
 keywords: fmri, temporal resolution, neurofeedback
 exports:
-  - format: pdf+tex
+  - format: pdf
     template: lapreprint
     line_spacing: onehalfspacing
     venue_footer: biorxiv
@@ -91,19 +91,19 @@ To allow susceptibility artifact correction, we acquired a pair of spin-echo ima
 The stimulus used in this experiment is a moving plaid, created by superimposing two moving gratings ([](#stimulus_img) B). This superimposition creates an intrinsically ambiguous and bistable stimulus that can be perceived as moving coherently or incoherently ([](#stimulus_img) C and D) ([](doi:10.1016/j.neuroimage.2018.06.075)).
 To force the perception of one of these equally possible motion interpretations, we added dots to the plaid, which help disambiguate motion ([](#stimulus_img) E). Depending on the relative percentage of dots that move vertically or horizontally, we induce a given level of coherence, and hence a perceptual interpretation to the observer. The complete description of the stimulus properties is provided in ([](doi:10.1016/j.neuroimage.2018.06.075)).
 
-:::{figure} ./images/stimulus.png
+```{figure} ./images/stimulus.png
 :name: stimulus_img
 Stimuli used in this experiment. A) Functional localizer used to map V1 and hMT+ in each participant's visual cortex. Moving dots were shown inside a circular aperture at the center of a black screen. Panels B, C, and D illustrate a plaid stimulus. By superimposing two gratings (B), moving orthogonally to the lines, a bistable stimulus is created, which can be perceived moving coherently (C) as a single surface or incoherently (D) as two separate surfaces sliding over each other. The arrows illustrate the direction of perceived motion. E) Plaid stimulus used during the unambiguous runs. Depending on the moving dots' direction, the otherwise ambiguous stimulus was readily perceived as a plaid moving coherently or incoherently. Adapted from ([](doi:10.1016/j.neuroimage.2018.06.075)).
-:::
+```
 
 ### Paradigm
 
 The acquisition session comprised one anatomical sequence, three types of field map sequences, one functional localizer, and four pairs of functional task runs ([](#session_img)). In total, the scanning session lasted for approximately 70 minutes.
 
-:::{figure} ./images/sessionprotocol.drawio.svg
+```{figure} ./images/sessionprotocol.drawio.svg
 :name: session_img
 Overview of the acquisition session (A). The session starts with the acquisition of an anatomical T1w image, followed by the localizer run (trial shown in panel B). Then, for each TR (0.5, 0.75, 1, 2.5 s), both SpinEcho field maps are acquired, followed by one ambiguous and one unambiguous task run (trial shown in panel C).
-:::
+```
 
 #### Functional localizer for the visual regions
 The goal of this run was to localize the two regions of interest in each participant's visual cortex - V1 and hMT+. For this purpose, 350 white dots (diameter of 0.08º) were shown inside a 9º circular aperture at the center of a black screen ([](#stimulus_img) A). Blocks of 6 s with dots moving (3º/s) in all eight cardinal and intermediate directions were interleaved with 6 s blocks of fixation (only the fixation cross was shown) and 6 s blocks of static dots. A central red cross (width of 0.67º) was displayed as a fixation target at the visual midline. The run lasted for 2.9 min, composed of nine trials.
@@ -130,17 +130,17 @@ Regarding the localizer data, the regions of interest V1 and hMT+ were functiona
 
 ### Localizer results - ROI definition
 
-:::{figure} #loc_singlesubject
+```{figure} #loc_singlesubject
 :name: loc_singlesubject_plot
 A very cool image.
-:::
+```
 
 A very interesting analysis performed on jupyter notebooks and exported here in [](#loc_group_interactive_plot).
 
-:::{figure} #loc_group_interactive
+```{figure} #loc_group_interactive
 :name: loc_group_interactive_plot
 A very cool image.
-:::
+```
 
 ### Impact on the image quality
 
@@ -150,25 +150,25 @@ p-value annotation legend:
 - ***: 0.0001 < p <= 0.001
 - ****: p <= 0.0001
 
-:::{figure} #mriqc_snr
+```{figure} #mriqc_snr
 :name: mriqc_snr_plot
 Comparison of SNR for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
-:::{figure} #mriqc_tsnr
+```{figure} #mriqc_tsnr
 :name: mriqc_tsnr_plot
 Comparison of tSNR for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
-:::{figure} #mriqc_aqi
+```{figure} #mriqc_aqi
 :name: mriqc_aqi_plot
 Comparison of AQI for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
-:::{figure} #mriqc_fwhm
+```{figure} #mriqc_fwhm
 :name: mriqc_fwhm_plot
 Comparison of average FWHM for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
 ### Impact on the feedback signal
 
@@ -176,15 +176,15 @@ Comparison of average FWHM for the different TRs. Statistical testing was perfor
 
 ### Offline ROI estimates
 
-:::{figure} #roi_betas_perTR
+```{figure} #roi_betas_perTR
 :name: roi_betas_perTR_plot
 Comparison of bilateral hMT+ beta value for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
-:::{figure} #roi_tvalues_perTR
+```{figure} #roi_tvalues_perTR
 :name: roi_tvalues_perTR_plot
 Comparison of bilateral hMT+ t value for the different TRs. Statistical testing was performed using a Mann-Whitney-Wilcoxon test two-sided test.
-:::
+```
 
 
 ## Discussion

@@ -1,8 +1,8 @@
-# See docs at: https://myst-tools.org/docs/mystjs/frontmatter
+# See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  title: vpmb-tr
-  description: vpmb-tr
+  # title:
+  # description:
   keywords: []
   authors: []
   github: https://github.com/alexsayal/vpmb-tr
@@ -10,12 +10,10 @@ project:
 site:
   template: book-theme
   # title:
-  # logo:
-  projects:
-    - slug: myst
-      path: .
+  # options:
+  #   logo: site_logo.png
   nav: []
-  # actions:
-  #   - title: Learn More
-  #     url: https://myst-tools.org/docs/mystjs
+  actions:
+    - title: Learn More
+      url: https://mystmd.org/guide
   domains: []
