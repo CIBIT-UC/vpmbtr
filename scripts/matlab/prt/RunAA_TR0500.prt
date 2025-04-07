@@ -1,0 +1,42 @@
+
+FileVersion:		2 
+
+ResolutionOfTime:	Volumes 
+
+Experiment:			VisualPerception_MultiBandEPI 
+
+BackgroundColor:	0  0  0 
+TextColor:			255  255  255 
+
+TimeCourseColor:	1  1  1 
+TimeCourseThick:	3 
+ReferenceFuncColor:	0   0  80 
+ReferenceFuncThick:	2 
+
+NrOfConditions:		4 
+ 
+Static 
+3 
+31	90 
+361	420 
+691	750 
+Color:	120 120 120 
+
+Ambiguous 
+2 
+91	330 
+421	660 
+Color:	0 114 189 
+
+MAE 
+2 
+331	360 
+661	690 
+Color:	126 47 142 
+
+Discard 
+2 
+1	30 
+751	780 
+Color:	80 80 80 
+

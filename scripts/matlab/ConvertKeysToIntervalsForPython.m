@@ -21,7 +21,8 @@ for cc = 1:nCombs
     
     %% load keypress
 
-    matFile =  dir(['/home/alexandresayal/GitRepos/vpmb-tr/data/keypress-raw/S' subjectNumberList{combSub(cc)} '_OUT_*.mat']);
+    % matFile =  dir(['/home/alexandresayal/GitRepos/vpmb-tr/data/keypress-raw/S' subjectNumberList{combSub(cc)} '_OUT_*.mat']);
+    matFile =  dir(['/Users/alexandresayal/GitHub/vpmb-tr/data/keypress-raw/S' subjectNumberList{combSub(cc)} '_OUT_*.mat']);
     
     load(fullfile(matFile.folder,matFile.name),'Output')
 

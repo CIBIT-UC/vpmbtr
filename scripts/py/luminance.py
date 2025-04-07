@@ -1,7 +1,7 @@
 import numpy as np
-from scipy.interpolate import interp1d
+from numpy.polynomial.polynomial import Polynomial
 
-# Calibration data: input value (0–1) and luminance for R, G, B
+# Calibration data
 calibration_data = np.array(
     [
         [0.000000, 0.148, 0.137, 0.150],
@@ -25,31 +25,29 @@ calibration_data = np.array(
     ]
 )
 
-# Split data into columns
+# Split data
 input_vals = calibration_data[:, 0]
 red_lum = calibration_data[:, 1]
 green_lum = calibration_data[:, 2]
 blue_lum = calibration_data[:, 3]
 
-# Create interpolation functions
-interp_red = interp1d(input_vals, red_lum, kind="linear", fill_value="extrapolate")
-interp_green = interp1d(input_vals, green_lum, kind="linear", fill_value="extrapolate")
-interp_blue = interp1d(input_vals, blue_lum, kind="linear", fill_value="extrapolate")
+# Fit 2nd-degree polynomials
+p_red = Polynomial.fit(input_vals, red_lum, deg=2).convert()
+p_green = Polynomial.fit(input_vals, green_lum, deg=2).convert()
+p_blue = Polynomial.fit(input_vals, blue_lum, deg=2).convert()
 
 
-# Function to convert RGB (8-bit) to luminance
-def rgb_to_luminance(rgb):
-    r, g, b = np.array(rgb) / 255.0  # Normalize to [0, 1]
-    l_r = interp_red(r)
-    l_g = interp_green(g)
-    l_b = interp_blue(b)
-    luminance = (
-        l_r + l_g + l_b
-    )  # the table values are already compensated, otherwise it would be luminance = 0.2126 * l_r + 0.7152 * l_g + 0.0722 * l_b
+# Function to compute luminance
+def rgb_to_luminance_poly(rgb):
+    r, g, b = np.array(rgb) / 255.0
+    l_r = p_red(r)
+    l_g = p_green(g)
+    l_b = p_blue(b)
+    luminance = l_r + l_g + l_b
     return float(luminance)
 
 
-# Example usage
-rgb_value = (130, 130, 130)
-luminance = rgb_to_luminance(rgb_value)
-print(f"Estimated luminance for RGB {rgb_value}: {luminance:.2f} cd/m²")
+# Example
+rgb_val = (0, 0, 0)
+lum = rgb_to_luminance_poly(rgb_val)
+print(f"Estimated luminance (2nd-order fit) for RGB {rgb_val}: {lum:.2f} cd/m²")
