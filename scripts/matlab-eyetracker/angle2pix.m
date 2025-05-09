@@ -1,27 +1,23 @@
-function pix = angle2pix(dist,width,resolutionX,ang)
-%pix = angle2pix(display,ang)
+function pix = angle2pix(viewDistCm, screenWidthCm, screenResX, visualAngleDeg)
+% ANGLE2PIX Converts visual angle (deg) to pixels
 %
-%converts visual angles in degrees to pixels.
+% pix = angle2pix(viewDistCm, screenWidthCm, screenResX, visualAngleDeg)
 %
-%Inputs:
-%display.dist (distance from screen (cm))
-%display.width (width of screen (cm))
-%display.resolution (number of pixels of display in horizontal direction)
+% INPUTS:
+%   viewDistCm       - Distance from viewer to screen (in cm)
+%   screenWidthCm    - Physical screen width (in cm)
+%   screenResX       - Horizontal screen resolution (in pixels)
+%   visualAngleDeg   - Visual angle (in degrees)
 %
-%ang (visual angle)
+% OUTPUT:
+%   pix              - Size in pixels corresponding to visual angle
 %
-%Warning: assumes isotropic (square) pixels
+% Assumes square pixels and viewer perpendicular to screen.
 
-%Written 11/1/07 gmb zre
+    % Size on screen in cm that corresponds to the visual angle
+    sizeCm = 2 * viewDistCm * tan(deg2rad(visualAngleDeg / 2));
 
-%Calculate pixel size
-pixSize = width/resolutionX;   %cm/pix
-
-sz = 2*dist*tan(pi*ang/(2*180));  %cm
-
-pix = round(sz/pixSize);   %pix 
-
+    % Convert physical size to pixels
+    cmPerPixel = screenWidthCm / screenResX;
+    pix = round(sizeCm / cmPerPixel);
 end
-
-
-

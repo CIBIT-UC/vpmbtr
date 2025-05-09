@@ -1,4 +1,5 @@
 .DS_Store
+scripts/matlab-eyetracker/edf-converter
 
 # MyST
 _build/
