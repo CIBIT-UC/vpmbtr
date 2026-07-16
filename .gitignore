@@ -168,3 +168,6 @@ cython_debug/
 
 # Legacy / superseded scripts, notebooks and derivatives (kept on disk, not tracked)
 legacy/
+
+# FUSE ghost files
+.fuse_hidden*
