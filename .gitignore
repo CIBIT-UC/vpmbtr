@@ -171,3 +171,4 @@ legacy/
 
 # FUSE ghost files
 .fuse_hidden*
+._*
